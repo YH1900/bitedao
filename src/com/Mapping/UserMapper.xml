@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+        "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="com.UserMapper.UserDao">
+    <resultMap type="" id="">
+        <id column="" property=""/>
+        <result/>
+    </resultMap>
+
+
+    <select id="findeUserById" parameterType="int" resultType="user">
+        <if test="">
+        </if>
+        SELECT * FROM user_user WHERE id = #{id}
+    </select>
+    <!-- $拼接字符串 只能用value -->
+    <select id="findUseByName" parameterType="java.lang.String" resultType="user">
+        SELECT * FROM user_user WHERE name LIKE '%${value}%'
+    </select>
+
+    <insert id="InsertUser" parameterType="com.pojo.User">
+        <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        INSERT INTO user_user(name,password,nicheng,telPhone)VALUE(#{name},#{password},#{nicheng},#{telPhone});
+    </insert>
+    <delete id="deleteUserById" parameterType="java.lang.Integer">
+        DELETE FROM user_user WHERE id = #{id}
+    </delete>
+
+</mapper>
