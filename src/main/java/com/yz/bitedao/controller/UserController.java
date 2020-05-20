@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class UserController {
-    @GetMapping("/t8esa1t")
+    @GetMapping("/t8a1t")
     public String test(){
         return  "test";
     }
