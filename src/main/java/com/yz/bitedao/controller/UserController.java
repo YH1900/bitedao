@@ -13,7 +13,7 @@ public class UserController {
     public String test(){
         return  "test";
     }
-    @GetMapping("/test1")
+    @GetMapping("/test11")
     public String test1(){
         return  "test";
     }
