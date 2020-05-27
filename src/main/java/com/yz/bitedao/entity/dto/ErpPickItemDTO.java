@@ -1,7 +1,5 @@
 package com.yz.bitedao.entity.dto;
 
-import cn.hutool.core.date.DateUtil;
-import com.sugon.entity.MaterialRecordEntity;
 
 import java.util.Date;
 
@@ -30,7 +28,6 @@ public class ErpPickItemDTO {
     /**
      * 物料单明细项，回填的
      */
-    private MaterialRecordEntity materialItem;
 
     public String getMateriasCode() {
         return materiasCode;
@@ -52,9 +49,6 @@ public class ErpPickItemDTO {
         return outDate;
     }
 
-    public void setOutDate(String outDate) {
-        this.outDate = DateUtil.parseDateTime(outDate);
-    }
 
     public void setQuantity(Integer quantity) {
         this.quantity = quantity;
@@ -64,11 +58,4 @@ public class ErpPickItemDTO {
         this.outDate = outDate;
     }
 
-    public MaterialRecordEntity getMaterialItem() {
-        return materialItem;
-    }
-
-    public void setMaterialItem(MaterialRecordEntity materialItem) {
-        this.materialItem = materialItem;
-    }
 }

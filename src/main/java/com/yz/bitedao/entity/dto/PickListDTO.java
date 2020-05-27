@@ -1,7 +1,5 @@
 package com.yz.bitedao.entity.dto;
 
-import com.sugon.entity.MaterialBaseEntity;
-import com.sugon.entity.MaterialRecordEntity;
 
 import java.util.List;
 
@@ -10,19 +8,10 @@ import java.util.List;
  * @author: YuXD
  * @create: 2020-04-26 18:59
  **/
-public class PickListDTO extends MaterialBaseEntity {
+public class PickListDTO  {
 
     /**
      * 领料单对应的备件领料明细
      */
-    private List<MaterialRecordEntity> materialItems;
-
-    public List<MaterialRecordEntity> getMaterialItems() {
-        return materialItems;
-    }
-
-    public void setMaterialItems(List<MaterialRecordEntity> materialItems) {
-        this.materialItems = materialItems;
-    }
 
 }
