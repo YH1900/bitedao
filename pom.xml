@@ -44,7 +44,6 @@
         <mail.version>1.4.1</mail.version>
         <poi.version>3.12</poi.version>
         <ant.version>1.7.0</ant.version>
-        <gson.version>2.5</gson.version>
         <!-- apache httpclient 相关 -->
         <httpclient.version>4.5.1</httpclient.version>
         <httpcore.version>4.4.4</httpcore.version>
@@ -261,12 +260,6 @@
             <groupId>org.apache.ant</groupId>
             <artifactId>ant</artifactId>
             <version>${ant.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.google.code.gson</groupId>
-            <artifactId>gson</artifactId>
-            <version>${gson.version}</version>
         </dependency>
 
         <dependency>
