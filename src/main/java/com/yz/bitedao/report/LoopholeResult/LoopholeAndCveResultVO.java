@@ -4,7 +4,6 @@ package com.yz.bitedao.report.LoopholeResult;
 import java.util.List;
 
 
-import Submitted.entity.ScanningResults;
 
 /**
  * 2019/12/11

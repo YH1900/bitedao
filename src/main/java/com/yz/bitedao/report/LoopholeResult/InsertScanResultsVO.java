@@ -3,7 +3,6 @@ package com.yz.bitedao.report.LoopholeResult;
 
 import java.util.List;
 
-import report.LoopholeResult.CveVO;
 
 /**
  * 2019/7/18

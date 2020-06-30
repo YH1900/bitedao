@@ -3,7 +3,6 @@ package com.yz.bitedao.report.LoopholeResult;
 
 import java.util.Date;
 
-import Submitted.entity.LoopholetVO;
 
 public class LoopholeResultVO {
     //名称
