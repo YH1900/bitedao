@@ -1,4 +1,4 @@
 #基础镜像
 FROM java:8-alpine
-ADD /var/lib/jenkins/workspace/bitedao/target/bitedao-1.0.war   bitedao.war
+COPY  /var/lib/jenkins/workspace/bitedao/target/bitedao-1.0.war   bitedao.war
 ENTRYPOINT ["java", "-jar","bitedao.war"]
