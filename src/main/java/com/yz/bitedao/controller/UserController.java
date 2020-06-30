@@ -11,6 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
     @GetMapping("/test")
     public String test(){
-        return  "燕asdas1212樟";
+        return  "燕asdaasdasds1212樟";
     }
 }
