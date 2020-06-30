@@ -57,7 +57,6 @@
         <commons-pool2.version>2.4.2</commons-pool2.version>
         <jedis.version>2.9.0</jedis.version>
         <noggit.version>0.6</noggit.version>
-        <solr-solrj.version>5.4.1</solr-solrj.version>
         <stax2-api.version>3.1.4</stax2-api.version>
         <woodstox-core-asl.version>4.4.1</woodstox-core-asl.version>
         <xmemcached.version>2.0.0</xmemcached.version>
@@ -351,11 +350,6 @@
             <groupId>org.noggit</groupId>
             <artifactId>noggit</artifactId>
             <version>${noggit.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.solr</groupId>
-            <artifactId>solr-solrj</artifactId>
-            <version>${solr-solrj.version}</version>
         </dependency>
         <dependency>
             <groupId>org.codehaus.woodstox</groupId>
