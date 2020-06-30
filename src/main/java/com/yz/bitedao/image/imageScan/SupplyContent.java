@@ -13,16 +13,11 @@ import java.util.List;
 
 
 import com.alibaba.fastjson.JSONArray;
-
-import Submitted.entity.InsertScanResultsVO;
-import Submitted.entity.LoopholetVO;
-import Submitted.entity.ScanningResults;
-import constant.Constant;
-import report.ReportUtil;
-import report.LoopholeResult.CveVO;
-import util.DataOutVO;
-import util.ExcelUtil;
-import util.WriteDataUtils;
+import com.yz.bitedao.report.InsertScanResultsVO;
+import com.yz.bitedao.report.LoopholeResult.CveVO;
+import com.yz.bitedao.report.LoopholeResult.LoopholetVO;
+import com.yz.bitedao.report.ReportUtil;
+import com.yz.bitedao.report.ScanningResults;
 
 public class SupplyContent {
 
@@ -36,7 +31,7 @@ public class SupplyContent {
 	static HashMap<String, String> describeHm = new HashMap<String, String>();
 	static HashMap<String, String> scoreHm = new HashMap<String, String>();
 	
-	public static int main(String outDir , String describePath , String scorePath,String chineseDescribePaths,ScanningResults scanningResults) {  
+	public static int main(String outDir , String describePath , String scorePath, String chineseDescribePaths, ScanningResults scanningResults) {
 		sourcePath = outDir + "Loophole_image.csv";
 		outputPath = outDir + "FinalResult_image.xls";
 		describeFilePath = describePath;
@@ -116,9 +111,7 @@ public class SupplyContent {
 			InputStreamReader isr =new InputStreamReader(fis,"UTF-8");
 			BufferedReader br = new BufferedReader(isr);
 			String result = "";
-			//增加标头,免责声明
-			WriteDataUtils.optimizationExcal(outputPath);
-			
+
 			while((result = br.readLine())!=null){
 				String[] results = result.split(",");
 				String cveNum = results[0];
@@ -134,12 +127,9 @@ public class SupplyContent {
 				String describeHmStr = describeHm.containsKey(cveNum) ? "\t" + describeHm.get(cveNum) : "\tLack of description";
 				String chineseDescribeHmStr = chineseDescribeHm.containsKey(cveNum) ? "\t" + chineseDescribeHm.get(cveNum).trim() : "\tLack of description";
 				String scoreHmStr = scoreHm.containsKey(cveNum) ? "\t" + scoreHm.get(cveNum) : "\tLack of score\tLack of score"; 
-				DataOutVO dataout1 =new DataOutVO(results[2],results[0], results[1], results[3], results[4],describeHmStr.split("\t")[1], describeHmStr.split("\t")[2], chineseDescribeHmStr, scoreHmStr.trim().split("\t")[0], scoreHmStr.trim().split("\t")[1]);
-				dataOut.add(dataout1);
 				addNum++;
 				//漏洞信息
 				cvrList.add(new CveVO(cveNum,describeHmStr.split("\t")[1],(scoreHmStr.trim().split("\t")[0]), scoreHmStr.trim().split("\t")[1],describeHmStr.split("\t")[2], chineseDescribeHmStr,results[0]));
-				loopholetVOList.add(new LoopholetVO(results[0],results[1],WriteDataUtils.judgeBussinessSDK(results[0]),scanningResults.getPattern(),new Date(),cveNum,0,""));
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -150,21 +140,17 @@ public class SupplyContent {
 		 */
 		try {
 			FileOutputStream fileqs = new FileOutputStream(outputPath);
-			ExcelUtil.exportExcel("声明：软件在扫描过程中可能由于各种原因影响结果精度，扫描结果仅供参考！", Constant.headMap, dataOut, null,0,fileqs );
 			fileqs.close();
 		} catch (IOException e) {
 		}
 		
 		System.out.println(addNum + " lines of vulnerability score have been written to [" + outputPath.replace("\\\\", "\\")+"]");
 		
-		loopholetVOList=WriteDataUtils.submissionDependency(outDir+"image_VersionOk.csv",loopholetVOList,scanningResults);
-		
+
 		//结果报告
 		InsertScanResultsVO inscanvo = new InsertScanResultsVO();
 		scanningResults.setScanningTime(new Date());
 		inscanvo.setScanningResults(scanningResults);
-		inscanvo.setLoopholetVOList(loopholetVOList);
-		inscanvo.setCvelist(cvrList);
 		ReportUtil.reportResult(inscanvo, outDir);
 		//结果原来提交服务器 现在本地生成
 		//HttpclientUtils.requestByPostMethod(Constant.URL, insertScanResultsvoStr);

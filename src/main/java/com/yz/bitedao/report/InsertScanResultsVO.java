@@ -1,9 +1,10 @@
 package com.yz.bitedao.report;
 
 
+import com.yz.bitedao.report.LoopholeResult.CveVO;
+
 import java.util.List;
 
-import report.LoopholeResult.CveVO;
 
 /**
  * 2019/7/18

@@ -14,19 +14,11 @@ import java.util.Map;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.yz.bitedao.report.LoopholeResult.CveVO;
+import com.yz.bitedao.report.LoopholeResult.LevelVO;
+import com.yz.bitedao.report.LoopholeResult.LoopholeAndCveResultVO;
+import com.yz.bitedao.report.LoopholeResult.LoopholeResultVO;
 
-import Submitted.entity.InsertScanResultsVO;
-import Submitted.entity.LoopholetVO;
-import Submitted.entity.ScanningResults;
-import report.LoopholeResult.CveVO;
-import report.LoopholeResult.LevelVO;
-import report.LoopholeResult.LoopholeAndCveResultVO;
-import report.LoopholeResult.LoopholeResultVO;
-
-/**
- * @author yz
- *  报表生成
- */
 public class ReportUtil {
 	public static void reportResult(InsertScanResultsVO inscanvo, String outDir) {
 		// 原结果文件夹增加json文件
@@ -66,7 +58,6 @@ public class ReportUtil {
 			scv.setPattern("Python");
 		}
 		scv.setRemark(" <button type=\"button\" class=\"layui-btn  layui-btn-sm\" lay-event=\"look\">查看</button>");
-		lpr.setScanningResults(scv);
 		lpr.setCveVOList(inscanvo.getCvelist());
 		// 漏洞map 分等级用
 		Map<String, List<CveVO>> cvevoMap = new HashMap<>();
@@ -125,7 +116,6 @@ public class ReportUtil {
 			if (HIGHnum == 0 && MEDIUMnum > 0) {
 				loopholeLevel = "中危";
 			}
-			loopholeResultVOs.add(new LoopholeResultVO(lpsM.get(entry.getKey()), loopholeLevel, levelVO));
 		}
 		lpr.setLoopholeResultVOS(loopholeResultVOs);
 		try {
