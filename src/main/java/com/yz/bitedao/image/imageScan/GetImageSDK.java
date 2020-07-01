@@ -208,7 +208,7 @@ public class GetImageSDK {
 						lastVersion="";
 						// apk lib/apk/db/installed
 						if ("alpine".equals(osName)) {
-							File apkFile = new File(layers + "/lib/apk/db/",FilenameUtils.getName("/lib/apk/db/instal"));
+							File apkFile = new File( "/lib/apk/db/",FilenameUtils.getName("/lib/apk/db/instal"));
 							if (apkFile.exists()) {
 								BufferedReader apkbf = new BufferedReader(new FileReader(apkFile));
 								String apkStr;
