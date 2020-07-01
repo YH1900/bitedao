@@ -136,7 +136,7 @@ public class SupplyContent {
 		}
 		/**
 		 * 结果原来提交服务器 现在本地生成
-		 * 输出xls格式
+		 * 输出xls格式 sdsd
 		 */
 		try {
 			FileOutputStream fileqs = new FileOutputStream(outputPath);
