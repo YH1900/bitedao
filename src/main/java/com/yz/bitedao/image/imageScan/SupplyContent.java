@@ -50,7 +50,7 @@ public class SupplyContent {
 			
 		FileInputStream fis;
 		//定义CVE描述hashMap1231asd
-		String describe = "";
+		String describe = "s";
 		try {
 			fis = new FileInputStream(describeFilePath);
 			InputStreamReader isr =new InputStreamReader(fis,"UTF-8");
