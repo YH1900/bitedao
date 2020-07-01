@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class UserController {
-    @GetMapping("/test")
+    @GetMapping("/index")
     public String test(){
-        return  "啊是打算打算";
+        return  "燕樟";
     }
 }
