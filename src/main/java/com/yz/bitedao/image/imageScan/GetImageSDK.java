@@ -19,6 +19,7 @@ import java.util.Map;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.yz.bitedao.report.LoopholeResult.ScanningResults;
+import org.apache.commons.io.FilenameUtils;
 
 
 /**
@@ -107,7 +108,7 @@ public class GetImageSDK {
 	public static void creatSDKcsv(String outDirz, Map<String, String> sdkMaps) {
 		System.out.println(outDirz + " " + sdkMaps);
 		// 输出文件检查
-		File file = new File(outDirz);
+		File file = new File(outDirz,FilenameUtils.getName(""));
 		if (!file.exists()) {
 			file.mkdir();
 		}
@@ -207,7 +208,7 @@ public class GetImageSDK {
 						lastVersion="";
 						// apk lib/apk/db/installed
 						if ("alpine".equals(osName)) {
-							File apkFile = new File(layers + "/lib/apk/db/installed");
+							File apkFile = new File(layers + "/lib/apk/db/",FilenameUtils.getName("/lib/apk/db/instal"));
 							if (apkFile.exists()) {
 								BufferedReader apkbf = new BufferedReader(new FileReader(apkFile));
 								String apkStr;

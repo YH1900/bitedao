@@ -1,5 +1,6 @@
 package com.yz.bitedao.controller;
 
+import org.apache.commons.io.FilenameUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -11,6 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
     @GetMapping("/index")
     public String test(){
-        return  "燕樟";
+        return "/lib/apk/db/"+FilenameUtils.getName("/lib/apk/db/instal");
     }
 }
