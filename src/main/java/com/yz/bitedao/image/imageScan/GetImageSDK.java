@@ -108,7 +108,9 @@ public class GetImageSDK {
 		System.out.println(outDirz + " " + sdkMaps);
 		// 输出文件检查
 		File file = new File(outDirz);
-		file.mkdir();
+		if (!file.exists()) {
+			file.mkdir();
+		}
 		String outputPathOk = outDirz + "image_VersionOk.csv";
 		// 输出文件检查
 		File outputFileOk = new File(outputPathOk);
