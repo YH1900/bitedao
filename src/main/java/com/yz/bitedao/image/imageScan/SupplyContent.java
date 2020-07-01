@@ -49,7 +49,7 @@ public class SupplyContent {
 		}
 			
 		FileInputStream fis;
-		//定义CVE描述hashMap1231
+		//定义CVE描述hashMap1231asd
 		String describe = "";
 		try {
 			fis = new FileInputStream(describeFilePath);
