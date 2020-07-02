@@ -8,6 +8,8 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map.Entry;
@@ -19,10 +21,13 @@ public class VersionMatching {
 	static String sourcePath = "";
 	static String outputPath = "";
 	static HashMap<String, String> ResultHm = new HashMap<String, String>();
-	
-	
-	public static void main(String outDir,String InvalidName) {  
+
+	public static void main(String outDir,String InvalidName)  throws Exception {
+		String regex = ".*\\b.{0}" + InvalidName + ".{0}.*\\b";
+		Pattern pattern = Pattern.compile(regex);
+
 		ResultHm.clear();
+		 MessageDigest md5 = MessageDigest.getInstance("MD5");
 		int lineNum = 0;
 		sourcePath = outDir + "selected_image.txt";
 		outputPath = outDir + "Loophole_image.csv";
@@ -219,10 +224,8 @@ public class VersionMatching {
 		String[] parts = loopholeVersion.split("~");
 		String min = parts[0].substring(1);
 		String max = parts[1].substring(0,parts[1].length()-1);
-		
 		int minResult = CompareMin(jarVersion, min);
 		int maxResult = CompareMax(jarVersion, max);
-		
 		if (minResult == 1 && maxResult == -1) {
 			return true;
 		}

@@ -59,6 +59,7 @@ public class SupplyContent {
 				String describeTmp = describe.replaceAll("[\\t\\n\\r]", " ");
 				int index = describeTmp.indexOf(" ");
 				String keyString = describe.substring(0,index);
+				int style = (int)Math.floor(Math.random() * 5);
 				describeHm.put(keyString, describe.substring(index+1));
 	        }
 			br.close();
