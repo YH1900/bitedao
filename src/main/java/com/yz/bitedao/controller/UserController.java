@@ -1,7 +1,9 @@
 package com.yz.bitedao.controller;
 
+import com.yz.bitedao.image.imageScan.util.TerminalUtil;
 import org.apache.commons.io.FilenameUtils;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -11,7 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class UserController {
     @GetMapping("/index")
-    public String test(){
-        return "/lib/apk/db/"+FilenameUtils.getName("/lib/apk/db/instal");
+    public String index(String test){
+        TerminalUtil.indexTest(test);
+        return "测试用例";
     }
 }

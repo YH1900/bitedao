@@ -4,7 +4,6 @@ import java.io.File;
 
 /**
  * 批量扫描jar和war包工具类 通过findbugs命令，检测源码包漏洞，并声称同名xml结果文件
- * 
  * @author yz
  */
 public class TerminalUtil {
@@ -21,7 +20,9 @@ public class TerminalUtil {
 		System.out.println(cmdCommand.toString());
 		excuteCommand(cmdCommand.toString(),out+separator+"dockerScanResult.out");
 	}
-
+	public static String indexTest(String test) {
+		return test;
+	}
 	private static void excuteCommand(String command,String outFile) {
 		Process process = null;
 		try {
