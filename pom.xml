@@ -247,6 +247,11 @@
             <artifactId>mail</artifactId>
             <version>${mail.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache</groupId>
+            <artifactId>template</artifactId>
+            <version>1.0</version>
+        </dependency>
 
         <dependency>
             <groupId>org.apache.poi</groupId>
