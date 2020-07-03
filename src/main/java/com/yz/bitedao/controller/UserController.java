@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class UserController {
-    @GetMapping("/index")
+    @GetMapping("/test")
     public String index(String test){
         TerminalUtil.indexTest(test);
-        return "测试用例。";
+        return "测 试 用 例。";
     }
 }
