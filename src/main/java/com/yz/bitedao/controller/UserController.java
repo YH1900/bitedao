@@ -15,6 +15,6 @@ public class UserController {
     @GetMapping("/index")
     public String index(String test){
         TerminalUtil.indexTest(test);
-        return "测试1用例";
+        return "测试用例";
     }
 }
