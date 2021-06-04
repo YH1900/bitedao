@@ -45,7 +45,7 @@
         <poi.version>3.12</poi.version>
         <ant.version>1.7.0</ant.version>
         <!-- apache httpclient 相关 -->
-        <httpclient.version>4.5.1</httpclient.version>
+        <httpclient.version>4.5.13</httpclient.version>
         <httpcore.version>4.4.4</httpcore.version>
         <httpmime.version>4.5.1</httpmime.version>
         <commons-httpclient.version>3.1</commons-httpclient.version>
