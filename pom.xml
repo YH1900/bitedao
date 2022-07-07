@@ -67,7 +67,7 @@
         <quartz.version>2.2.3</quartz.version>
         <yuicompressor.version>2.4.8</yuicompressor.version>
         <!-- hibernate validator -->
-        <hibernate.version>5.0.2.Final</hibernate.version>
+        <hibernate.version>6.0.23.Final</hibernate.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
